@@ -51,7 +51,7 @@ window.onscroll = function() {
     document.getElementById("nav").style.top = "0";
 	
 	
-  } else if(currentScrollPos < 30){
+  } else if(currentScrollPos < 15){
 	document.getElementById("nav").style.top = "0";
   }else {
     document.getElementById("nav").style.top = "-150px";

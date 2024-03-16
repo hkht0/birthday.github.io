@@ -89,7 +89,16 @@ body {
 
 #question {
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+}
+
+#images {
+  margin-bottom: 30px;
+  border-radius: 15px;
+}
+
+#variant {
+  margin-bottom: 20px;
 }
 
 #options {

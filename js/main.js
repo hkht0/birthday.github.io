@@ -70,7 +70,7 @@ function doSomething() {
 	if (text.includes("apple")) {
 		document.getElementById("rick").style.visibility = "visible";
 		document.getElementById("error").style.visibility = "hidden";
-														
+
 	}else if (text.includes("ball")) {
 		error.innerHTML = `<p>еще раз...</p>
 		<input placeholder="Ввевиде пароль с опроса" type="text" id="myInput" onsubmit="doSomething">
@@ -91,48 +91,65 @@ function doSomething() {
 
 	const quizData = [
     {
-      question: "Дата начала отношений:",
-      options: ["когда-то", "вчера", "9.01.2023", "10.01.2023"],
+      question: "Дата начала отношений?",
+	  variant: 'Можешь не спешить:',
+	  asddsa: '/img/projects/20.jpeg',
+      options: ["Когда-то", "Вчера", "9.01.2023", "10.01.2023"],
       answer: "9.01.2023"
     },
     {
-      question: "Мой любимый цвет:",
-      options: ["зеленый", "красный", "розовый", "не знаю"],
-      answer: "зеленый"
+      question: "Мой любимый цвет?",
+	  variant: 'Угадай:',
+	  asddsa: 'img/projects/33.jpeg',
+      options: ["Зеленый", "Красный", "Розовый", "Не знаю"],
+      answer: "Зеленый"
     },
     {
-		question: "в каком году был 2025 год",
+		question: "В каком году был 2025 год?",
+		variant: 'Внимательно:',
+		asddsa: 'img/projects/34.png',
 		options: ["в 2025", "вчера", "в след году", "не було"],
 		answer: "не було"
 	},
 	{
-		question: "Любимая марка машин у твоего отца",
-		options: ["bugatti", "range rover", "BMW\u2665", "не знаю"],
+		question: "Любимая марка машин у твоего отца?",
+		variant: '+1 правильный ответ:',
+		asddsa: 'img/projects/35.png',
+		options: ["Bugatti", "Range rover", "BMW\u2665", "Не знаю"],
 		answer: "BMW\u2665"
 	},
     {
-		question: "What is the largest planet in our solar system?",
-		options: ["Jupiter", "Saturn", "Mars", "Earth"],
-		answer: "Jupiter"
+		question: "Вопрос на логику",
+		variant: 'Выбери номер места на котором стоит автомобиль:',
+		options: ["87", "68", "99", "60"],
+		asddsa: '/img/projects/30.svg',
+		answer: "87"
 	},
 	{
-		question: "What is the largest planet in our solar system?",
-		options: ["Jupiter", "Saturn", "Mars", "Earth"],
-		answer: "Jupiter"
+		question: "У Влада сестёр и братьев поровну.",
+		variant: ' Кого в семье больше: сыновей или дочерей?:',
+		options: ["Поровну", "Дочерей", "Меня", "Сыновей"],
+		asddsa: '/img/projects/31.png',
+		answer: "Сыновей"
 	},
    
   ];
   
+  const imagesElement = document.getElementById('images')
   const questionElement = document.getElementById("question");
+  const variantElement = document.getElementById("variant");
   const optionsElement = document.getElementById("options");
   const submitButton = document.getElementById("submit");
   
   let currentQuestion = 0;
   let score = 0;
   
+
   function showQuestion() {
     const question = quizData[currentQuestion];
     questionElement.innerText = question.question;
+	variantElement.innerText = question.variant;
+	imagesElement.src= question.asddsa;
   
     optionsElement.innerHTML = "";
     question.options.forEach(option => {
@@ -143,6 +160,11 @@ function doSomething() {
     });
   }
   
+  function changeImageSrc(newSrc) {
+	var image = document.getElementById('images');
+	image.src = newSrc;
+  };
+
   function selectAnswer(e) {
     const selectedButton = e.target;
     const answer = quizData[currentQuestion].answer;
@@ -187,3 +209,5 @@ function doSomething() {
   {
 	window.location.reload()
   }
+
+  

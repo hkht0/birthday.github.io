@@ -355,6 +355,11 @@ hr {
   border-radius: 10px;
 }
 
+.project:hover {
+  transform: scale(110%);
+  transition: 1s all ease-in-out;
+}
+
 .project__img {
   border-radius: 10px;
 }

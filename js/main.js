@@ -44,3 +44,24 @@ btnDarkMode.onclick = function () {
 	}
 }
 
+var prevScrollpos = window.window.scrollY;
+window.onscroll = function() {
+  var currentScrollPos = window.window.scrollY;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("nav").style.top = "0";
+	
+	
+  } else if(currentScrollPos < 30){
+	document.getElementById("nav").style.top = "0";
+  }else {
+    document.getElementById("nav").style.top = "-150px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() == 0) {
+		document.getElementById("nav").style.top = "0";
+
+    }
+});

@@ -93,7 +93,7 @@ function doSomething() {
     {
       question: "Дата начала отношений?",
 	  variant: 'Можешь не спешить:',
-	  asddsa: '/img/projects/20.jpeg',
+	  asddsa: '/img/projects/20.jpg',
       options: ["Когда-то", "Вчера", "9.01.2023", "10.01.2023"],
       answer: "9.01.2023"
     },

@@ -69,27 +69,58 @@ function doSomething() {
   
 	if (text.includes("apple")) {
 		document.getElementById("rick").style.visibility = "visible";
-	}
-	else if (text.includes("ball")) {
-	  console.log("do something special because text contains ball");
+		document.getElementById("error").style.visibility = "hidden";
+														
+	}else if (text.includes("ball")) {
+		error.innerHTML = `<p>еще раз...</p>
+		<input placeholder="Ввевиде пароль с опроса" type="text" id="myInput" onsubmit="doSomething">
+	<button id='accept' class="content-list__btn" onclick="doSomething()">Check</button>
+	`;
+		document.getElementById("error").style.visibility = "visible";
 	}
 	else {
-		document.getElementById("rick").style.visibility = "hidden";
-	}
+		error.innerHTML = `<p>еще раз</p>
+		<input placeholder="Ввевиде пароль с опроса" type="text" id="myInput" onsubmit="doSomething">
+	<button class="content-list__btn" onclick="doSomething()">Check</button>
+	`;
+		document.getElementById("error").style.visibility = "visible";
+		}
   }
 
-  const quizData = [
+ 
+
+	const quizData = [
     {
       question: "Дата начала отношений:",
       options: ["когда-то", "вчера", "9.01.2023", "10.01.2023"],
       answer: "9.01.2023"
     },
     {
-      question: "What is the largest planet in our solar system?",
-      options: ["Jupiter", "Saturn", "Mars", "Earth"],
-      answer: "Jupiter"
+      question: "Мой любимый цвет:",
+      options: ["зеленый", "красный", "розовый", "не знаю"],
+      answer: "зеленый"
     },
-    // Add more questions here...
+    {
+		question: "в каком году был 2025 год",
+		options: ["в 2025", "вчера", "в след году", "не було"],
+		answer: "не було"
+	},
+	{
+		question: "Любимая марка машин у твоего отца",
+		options: ["bugatti", "range rover", "BMW\u2665", "не знаю"],
+		answer: "BMW\u2665"
+	},
+    {
+		question: "What is the largest planet in our solar system?",
+		options: ["Jupiter", "Saturn", "Mars", "Earth"],
+		answer: "Jupiter"
+	},
+	{
+		question: "What is the largest planet in our solar system?",
+		options: ["Jupiter", "Saturn", "Mars", "Earth"],
+		answer: "Jupiter"
+	},
+   
   ];
   
   const questionElement = document.getElementById("question");
@@ -130,11 +161,29 @@ function doSomething() {
   }
   
   function showResult() {
-    quiz.innerHTML = `
-      <h1>Quiz Completed!</h1>
-      <p>Your score: ${score}/${quizData.length}</p>
-      <button onclick='doReload'>Reload</button>
+    if (score<6){
+		quiz.innerHTML = `
+		<p>Правильных ответов: ${score}/${quizData.length}</p>
+		<h1>как-то мало нужно хотя-бы все</h1>
+      <button id='reload' onClick="window.location.reload();">Reload</button>
+	  
     `;
+	}else{
+		quiz.innerHTML = `
+      <h1>Опрос успешно пройден!</h1>
+      <p>Правильных ответов: ${score}/${quizData.length}</p>
+	  <p>Пароль: </p>`
+	  error.innerHTML = `
+	  <input placeholder="Ввевиде пароль с опроса" type="text" id="myInput" onsubmit="doSomething">
+	<button class="content-list__btn" onclick="doSomething()">Check</button>
+    `;
+	}
+	
   }
   
   showQuestion();
+
+  if(document.getElementById('reload').clicked == true)
+  {
+	window.location.reload()
+  }

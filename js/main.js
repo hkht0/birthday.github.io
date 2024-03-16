@@ -59,9 +59,9 @@ window.onscroll = function() {
   prevScrollpos = currentScrollPos;
 }
 
-$(window).scroll(function() {
+window.scroll = function() {
     if ($(this).scrollTop() == 0) {
 		document.getElementById("nav").style.top = "0";
 
     }
-});
+};

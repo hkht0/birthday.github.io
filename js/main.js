@@ -93,7 +93,7 @@ function doSomething() {
     {
       question: "Дата начала отношений?",
 	  variant: 'Можешь не спешить:',
-	  asddsa: '/img/projects/20.jpg',
+	  asddsa: '/img/projects/40.jpg',
       options: ["Когда-то", "Вчера", "9.01.2023", "10.01.2023"],
       answer: "9.01.2023"
     },
@@ -205,9 +205,16 @@ function doSomething() {
   
   showQuestion();
 
-  if(document.getElementById('reload').clicked == true)
-  {
-	window.location.reload()
-  }
+  document.addEventListener('DOMContentLoaded', function () {
+    
+    document.querySelector('button').addEventListener('click', int)
+});
+  
+function int() {
+    console.log('calling');
+    var source = document.getElementById('j1_64_anchor').click();
+}
 
+var coll = document.getElementsByClassName("collapsible");
+var i;
   
